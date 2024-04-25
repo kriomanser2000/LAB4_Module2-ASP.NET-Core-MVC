@@ -1,0 +1,32 @@
+﻿@model LAB4_Module2.Models.FractionViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Calculate" method="post">
+    <div>
+        <label>Fraction 1: </label>
+        <input asp-for="Numerator1" placeholder="Numerator" />
+        <input asp-for="Denominator1" placeholder="Denominator" />
+    </div>
+    <div>
+        <label>Fraction 2: </label>
+        <input asp-for="Numerator2" placeholder="Numerator" />
+        <input asp-for="Denominator2" placeholder="Denominator" />
+    </div>
+    <div>
+        <label>Operation: </label>
+        <select asp-for="Operation">
+            <option value="Add">Addition</option>
+            <option value="Subtract">Subtraction</option>
+        </select>
+    </div>
+    <button type="submit">Calculate</button>
+</form>
+@if (!string.IsNullOrEmpty(Model.Result))
+{
+    <div>Result: @Model.Result</div>
+}
+<ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App"/>
+</ItemGroup>
